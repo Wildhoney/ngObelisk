@@ -1,0 +1,19 @@
+{
+  "name": "ngObelisk",
+  "version": "0.1.0",
+  "description": "Easily use Obelisk to create animations using Angular.js",
+  "main": "dist/ng-obelisk.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Wildhoney/ngObelisk.git"
+  },
+  "author": "Adam Timberlake <adam.timberlake@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wildhoney/ngObelisk/issues"
+  },
+  "homepage": "https://github.com/Wildhoney/ngObelisk"
+}
