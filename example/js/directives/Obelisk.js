@@ -21,13 +21,15 @@
              */
             link: function link(scope, element) {
 
-                var point = new $window.obelisk.Point(100, 100);
-                var pixelView = new $window.obelisk.PixelView(element[0], point);
-                var dimension = new $window.obelisk.CubeDimension(10, 10, 10);
-                var gray = $window.obelisk.ColorPattern.GRAY;
-                var color = new $window.obelisk.CubeColor().getByHorizontalColor(gray);
-                var cube = new $window.obelisk.Cube(dimension, color, true);
-                pixelView.renderObject(cube);
+                var point = new obelisk.Point(100, 100);
+                var pixelView = new obelisk.PixelView(element[0], point);
+                var dimension = new obelisk.CubeDimension(10, 10, 10);
+                var gray = obelisk.ColorPattern.GRAY;
+                var color = new obelisk.CubeColor().getByHorizontalColor(gray);
+                var cube = new obelisk.Cube(dimension, color, true);
+
+                var object = pixelView.renderObject(cube);
+                console.log(object);
 
             }
         }

@@ -11,10 +11,31 @@
     /**
      * @service obelisk
      */
-    app.service('obelisk', function obeliskService() {
+    app.service('obelisk', ['$window', function obeliskService($window) {
 
-        return {};
+        /**
+         * @property service
+         * @type {Object}
+         */
+        var service = {};
 
-    });
+        /**
+         * @property objects
+         * @type {Array}
+         */
+        service.objects = [];
+
+        /**
+         * @method Obelisk
+         * @constructor
+         */
+        function Obelisk() {}
+
+        // Extend the existing Obelisk module.
+        Obelisk.prototype = $window.obelisk;
+
+        return new Obelisk();
+
+    }]);
 
 })(window.angular);
