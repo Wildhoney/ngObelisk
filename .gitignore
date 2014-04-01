@@ -1,4 +1,6 @@
 /node_modules
-/example/js/vendor/*.js
+/example/js/vendor/*
 /.idea
 generate-words.rb
+
+!/example/js/vendor/.gitkeep
