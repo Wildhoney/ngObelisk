@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            all: 'modules/Snapshot.js',
+            all: 'modules/ngObelisk.js',
             options: {
                 jshintrc: '.jshintrc'
             }
@@ -14,14 +14,14 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> by <%= pkg.author %> created on <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: ['modules/Snapshot.js'],
+                src: ['modules/ngObelisk.js'],
                 dest: 'dist/<%= pkg.buildName %>.min.js'
             }
         },
         copy: {
             main: {
                 files: [
-                    {flatten: true, src: ['modules/Snapshot.js'], dest: 'dist/snapshot.js'}
+                    {flatten: true, src: ['modules/ngObelisk.js'], dest: 'dist/snapshot.js'}
                 ]
             }
         },
