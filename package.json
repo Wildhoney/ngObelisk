@@ -1,6 +1,6 @@
 {
   "name": "ng-obelisk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Easily use Obelisk to create animations using Angular.js",
   "main": "dist/ng-obelisk.js",
   "scripts": {
