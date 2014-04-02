@@ -78,8 +78,11 @@
                 // Define the colour using the colour from the model.
                 var colour = new obelisk.CubeColor().getByHorizontalColor(object.color.horizontal);
 
+                // Determine the type of the object, such as cube, pyramid, et cetera...
+                var objectType = object.toString().replace(/[^a-z]+/ig, '');
+
                 // Finally we need to create the same object that we're dealing with, and render it!
-                service.pixelView.renderObject(new obelisk.Cube(dimension, colour, object.border));
+                service.pixelView.renderObject(new obelisk[objectType](dimension, colour, object.border));
 
             }
 

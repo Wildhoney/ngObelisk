@@ -33,10 +33,13 @@
 
                 $interval(function() {
 
-                    index += 20;
-                    object.setX(index);
+                    index += 2;
 
-                }, 1000);
+                    if (index <= 300) {
+                        object.setX(index);
+                    }
+
+                }, 5);
 
             }
         }
