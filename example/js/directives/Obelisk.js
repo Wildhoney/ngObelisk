@@ -39,7 +39,13 @@
                     index += 2;
 
                     if (index <= 100) {
+
+                        var wineRed   = obelisk.ColorPattern.WINE_RED,
+                            newColour = new obelisk.CubeColor().getByHorizontalColor(wineRed);
+
                         object.setX(index);
+                        object.setColour(newColour);
+
                     }
 
                 }, 25);

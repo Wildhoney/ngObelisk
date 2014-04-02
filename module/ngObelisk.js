@@ -131,6 +131,16 @@
             p3d: {},
 
             /**
+             * @method setColour
+             * @param colour {Object}
+             * @return {void}
+             */
+            setColour: function setColour(colour) {
+                service._prepareChanges();
+                this.object.color = colour;
+            },
+
+            /**
              * @method setX
              * @param value {Number}
              * @return {void}
