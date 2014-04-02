@@ -3,7 +3,7 @@
     /**
      * @directive Obelisk
      */
-    $app.directive('obelisk', ['$window', 'obelisk', function obeliskController($window, obelisk) {
+    $app.directive('obelisk', ['$window', '$interval', 'obelisk', function obeliskController($window, $interval, obelisk) {
 
         return {
 
@@ -27,10 +27,16 @@
                 var gray = obelisk.ColorPattern.GRAY;
                 var color = new obelisk.CubeColor().getByHorizontalColor(gray);
                 var cube = new obelisk.Cube(dimension, color, true);
-
                 var object = pixelView.renderObject(cube);
-                object.setX(20);
-                console.log(object);
+
+                var index = 20;
+
+                $interval(function() {
+
+                    index += 20;
+                    object.setX(index);
+
+                }, 1000);
 
             }
         }

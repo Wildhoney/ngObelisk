@@ -59,8 +59,29 @@
          */
         service._commitChanges = function _commitChanges() {
 
-            // Clear the stage for the new changes.
+            // Clear the stage for the new frame.
             service.pixelView.clear();
+
+            // Iterate over each object we have at the moment.
+            for (var index = 0; index < service.objects.length; index++) {
+
+                var object = service.objects[index].object;
+
+                // Extract the dimensions for the object.
+                var xAxis = object.dimension.xAxis,
+                    yAxis = object.dimension.yAxis,
+                    zAxis = object.dimension.zAxis;
+
+                // We can therefore now define the dimensions.
+                var dimension = new obelisk.CubeDimension(xAxis, yAxis, zAxis);
+
+                var gray = obelisk.ColorPattern.GRAY;
+                var color = new obelisk.CubeColor().getByHorizontalColor(gray);
+                var cube = new obelisk.Cube(dimension, color, true);
+
+                service.pixelView.renderObject(cube);
+
+            }
 
         };
 
@@ -133,6 +154,7 @@
 
                     /**
                      * @method renderObject
+                     * @param object {Object}
                      * @return {Object}
                      */
                     this.renderObject = function renderObject(object) {
