@@ -194,6 +194,15 @@
 
                 var properties = ['dimension', 'color'];
 
+                /**
+                 * @method findObjects
+                 * @param currentObject {Object}
+                 * @returns {Boolean}
+                 */
+                var findObjects = function findObjects(currentObject) {
+                    return property === currentObject.object[propertyName];
+                };
+
                 // Iterate over each object.
                 for (var objectIndex = 0; objectIndex < service.objects.length; objectIndex++) {
 
@@ -207,9 +216,7 @@
                             property = object[propertyName];
 
                         // Find objects that have this property.
-                        var foundObjects = service.objects.filter(function filter(currentObject) {
-                            return property === currentObject.object[propertyName];
-                        });
+                        var foundObjects = service.objects.filter(findObjects);
 
                         // If there's more than one then we've found a duplicate.
                         if (foundObjects.length > 1) {

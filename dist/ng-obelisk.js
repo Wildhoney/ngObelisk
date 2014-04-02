@@ -190,6 +190,48 @@
 
             var scope = this;
 
+            this.sanityCheck = function sanityCheck() {
+
+                var properties = ['dimension', 'color'];
+
+                /**
+                 * @method findObjects
+                 * @param currentObject {Object}
+                 * @returns {Boolean}
+                 */
+                var findObjects = function findObjects(currentObject) {
+                    return property === currentObject.object[propertyName];
+                };
+
+                // Iterate over each object.
+                for (var objectIndex = 0; objectIndex < service.objects.length; objectIndex++) {
+
+                    var object = service.objects[objectIndex].object;
+
+                    // Iterate over each property that we're interested in.
+                    for (var propertyIndex = 0; propertyIndex < properties.length; propertyIndex++) {
+
+                        // Find the property on this object.
+                        var propertyName = properties[propertyIndex],
+                            property = object[propertyName];
+
+                        // Find objects that have this property.
+                        var foundObjects = service.objects.filter(findObjects);
+
+                        // If there's more than one then we've found a duplicate.
+                        if (foundObjects.length > 1) {
+
+                            // Throw an exception to notify of a sanity check failure.
+                            throw "ngObelisk: " + foundObjects.length + " objects have the same '" + propertyName + "' reference.";
+
+                        }
+
+                    }
+
+                }
+
+            };
+
             /**
              * @method PixelView
              * @param element {Object}
