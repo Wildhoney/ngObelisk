@@ -15,20 +15,20 @@ module.exports = function(grunt) {
             },
             build: {
                 src: ['module/ngObelisk.js'],
-                dest: 'dist/<%= pkg.buildName %>.min.js'
+                dest: 'dist/<%= pkg.name %>.min.js'
             }
         },
         copy: {
             main: {
                 files: [
-                    {flatten: true, src: ['module/ngObelisk.js'], dest: 'dist/snapshot.js'}
+                    {flatten: true, src: ['module/ngObelisk.js'], dest: 'dist/ng-obelisk.js'}
                 ]
             }
         },
         rename: {
             main: {
                 files: [
-                    {src: ['dist/ng-obelisk.js'], dest: 'dist/<%= pkg.buildName %>.js'}
+                    {src: ['dist/ng-obelisk.js'], dest: 'dist/<%= pkg.name %>.js'}
                 ]
             }
         },
