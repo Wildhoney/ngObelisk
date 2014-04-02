@@ -5,6 +5,8 @@
  */
 (function startObelisk($angular) {
 
+    "use strict";
+
     // Bootstrap ngObelisk, my lovelies!
     var app = $angular.module('ngObelisk', []);
 

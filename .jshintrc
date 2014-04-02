@@ -11,6 +11,7 @@
     "trailing"      : true,
     "undef"         : false,
     "unused"        : true,
+    "proto"         : true,
     "maxparams"     : 10,
     "maxdepth"      : 5,
     "maxstatements" : 25,
