@@ -29,6 +29,7 @@
                 var cube = new obelisk.Cube(dimension, color, true);
 
                 var object = pixelView.renderObject(cube);
+                object.setX(20);
                 console.log(object);
 
             }

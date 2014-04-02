@@ -27,9 +27,38 @@
 
         /**
          * @method ObeliskObject
+         * @param object {Object}
          * @constructor
          */
-        function ObeliskObject() {}
+        function ObeliskObject(object) {
+
+            // Store the information for the object.
+            this.object = object;
+
+        }
+
+        /**
+         * @property prototype
+         * @type {Object}
+         */
+        ObeliskObject.prototype = {
+
+            /**
+             * @property object
+             * @type {Object}
+             */
+            object: {},
+
+            /**
+             * @method setX
+             * @param value {Number}
+             * @return {void}
+             */
+            setX: function setX(value) {
+                this.object.dimension.xAxis = value;
+            }
+
+        };
 
         /**
          * @method Obelisk
