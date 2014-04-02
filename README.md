@@ -21,3 +21,9 @@ var object = pixelView.renderObject(cube, p3d);
 `ngObelisk` returns the object to manipulate from the `renderObject` method &ndash; this is how the animations work in `ngObelisk`.
 
 Therefore with `object` you can now invoke methods to animate your canvas &ndash; try `object.setX(200)` to change the dimension of your newly rendered cube.
+
+* `setPosition` &mdash; set position of the object;
+* `setColour` &mdash; set colour of the object;
+* `setX` &mdash; set X dimension;
+* `setY` &mdash; set Y dimension;
+* `setZ` &mdash; set Z dimension;
