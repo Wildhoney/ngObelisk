@@ -81,6 +81,13 @@
                 // Determine the type of the object, such as cube, pyramid, et cetera...
                 var objectType = object.toString().replace(/[^a-z]+/ig, '');
 
+                if (typeof obelisk[objectType] === 'undefined') {
+
+                    // Assert that we have the object type.
+                    throw "ngObelisk: unable to find object of type '" + objectType + "'.";
+
+                }
+
                 // Finally we need to create the same object that we're dealing with, and render it!
                 service.pixelView.renderObject(new obelisk[objectType](dimension, colour, object.border));
 
