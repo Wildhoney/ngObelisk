@@ -27,3 +27,8 @@ Therefore with `object` you can now invoke methods to animate your canvas &ndash
 * `setX` &mdash; set X dimension;
 * `setY` &mdash; set Y dimension;
 * `setZ` &mdash; set Z dimension;
+
+Debugging
+---------
+
+Since Obelisk has a lot of references, `ngObelisk` comes bundled with a `sanityCheck` method to help you debug common problems.
