@@ -136,6 +136,16 @@
             setX: function setX(value) {
                 service._prepareChanges();
                 this.object.dimension.xAxis = value;
+            },
+
+            /**
+             * @method setY
+             * @param value {Number}
+             * @return {void}
+             */
+            setY: function setX(value) {
+                service._prepareChanges();
+                this.object.dimension.yAxis = value;
             }
 
         };
