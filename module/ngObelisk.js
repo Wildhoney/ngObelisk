@@ -26,6 +26,12 @@
         service.objects = [];
 
         /**
+         * @method ObeliskObject
+         * @constructor
+         */
+        function ObeliskObject() {}
+
+        /**
          * @method Obelisk
          * @constructor
          */
@@ -42,11 +48,30 @@
             this.PixelView = function PixelView(element, point) {
 
                 // Find the prototype for the `PixelView`.
-                var obeliskPrototype = scope.__proto__.PixelView.prototype;
+                var pixelViewPrototype = scope.__proto__.PixelView.prototype;
 
                 // Invoke the `PixelView` method and return the prototype.
-                scope.__proto__.PixelView.apply(obeliskPrototype, [element, point]);
-                return obeliskPrototype;
+                scope.__proto__.PixelView.apply(pixelViewPrototype, [element, point]);
+
+                /**
+                 * @method RenderObject
+                 * @constructor
+                 */
+                function RenderObject() {
+
+                    var scope = this;
+
+                    /**
+                     * @method renderObject
+                     * @return {Object}
+                     */
+                    this.renderObject = function renderObject(object) {
+                        return pixelViewPrototype.renderObject(object);
+                    }
+
+                }
+
+                return new RenderObject();
 
             }
 
