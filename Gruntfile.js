@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         rename: {
             main: {
                 files: [
-                    {src: ['dist/Snapshot.js'], dest: 'dist/<%= pkg.buildName %>.js'}
+                    {src: ['dist/ng-obelisk.js'], dest: 'dist/<%= pkg.buildName %>.js'}
                 ]
             }
         },
@@ -44,11 +44,10 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('build', ['copy', 'uglify']);
-    grunt.registerTask('test', ['mochaTest', 'jshint']);
-    grunt.registerTask('default', ['mochaTest', 'jshint', 'copy', 'uglify']);
+    grunt.registerTask('test', ['jshint']);
+    grunt.registerTask('default', ['jshint', 'copy', 'uglify']);
 
 };

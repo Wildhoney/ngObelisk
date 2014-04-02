@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Wildhoney/ngObelisk/issues"
   },
-  "homepage": "https://github.com/Wildhoney/ngObelisk"
+  "homepage": "https://github.com/Wildhoney/ngObelisk",
+  "dependencies": {
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-copy": "~0.5.0"
+  }
 }
