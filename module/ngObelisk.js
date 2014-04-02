@@ -131,6 +131,16 @@
             p3d: {},
 
             /**
+             * @method setPosition
+             * @param position {Object}
+             * @return {void}
+             */
+            setPosition: function setPosition(position) {
+                service._prepareChanges();
+                this.p3d = position;
+            },
+
+            /**
              * @method setColour
              * @param colour {Object}
              * @return {void}

@@ -46,6 +46,10 @@
                         object.setX(index);
                         object.setColour(newColour);
 
+                        var p3d = new obelisk.Point3D(index, 40, 40);
+                        object.setPosition(p3d);
+
+
                     }
 
                 }, 25);
