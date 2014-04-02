@@ -59,8 +59,6 @@
                  */
                 function RenderObject() {
 
-                    var scope = this;
-
                     /**
                      * @method renderObject
                      * @return {Object}
