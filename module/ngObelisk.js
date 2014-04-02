@@ -36,7 +36,7 @@
             /**
              * @method PixelView
              * @param element {Object}
-             * @param point {Object}
+             * @param point {Point}
              * @return {Object}
              */
             this.PixelView = function PixelView(element, point) {
