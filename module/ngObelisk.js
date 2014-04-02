@@ -29,7 +29,28 @@
          * @method Obelisk
          * @constructor
          */
-        function Obelisk() {}
+        function Obelisk() {
+
+            var scope = this;
+
+            /**
+             * @method PixelView
+             * @param element {Object}
+             * @param point {Object}
+             * @return {Object}
+             */
+            this.PixelView = function PixelView(element, point) {
+
+                // Find the prototype for the `PixelView`.
+                var obeliskPrototype = scope.__proto__.PixelView.prototype;
+
+                // Invoke the `PixelView` method and return the prototype.
+                scope.__proto__.PixelView.apply(obeliskPrototype, [element, point]);
+                return obeliskPrototype;
+
+            }
+
+        }
 
         // Extend the existing Obelisk module.
         Obelisk.prototype = $window.obelisk;

@@ -23,6 +23,7 @@
 
                 var point = new obelisk.Point(100, 100);
                 var pixelView = new obelisk.PixelView(element[0], point);
+                console.log(pixelView);
                 var dimension = new obelisk.CubeDimension(10, 10, 10);
                 var gray = obelisk.ColorPattern.GRAY;
                 var color = new obelisk.CubeColor().getByHorizontalColor(gray);
