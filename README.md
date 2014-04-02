@@ -1,6 +1,10 @@
 ngObelisk
 =========
 
+<img src="https://travis-ci.org/Wildhoney/ngObelisk.png?branch=master" alt="Travis CI" />
+&nbsp;
+<img src="https://badge.fury.io/js/ngobelisk.png" alt="NPM Version" />
+
 <a href="https://github.com/nosir/obelisk.js">Obelisk</a> is a very useful JavaScript library for creating isometric shapes. However, animations are difficult to achieve. That's where ngObelisk attempts to make things easier by utilising the Angular.js runtime loop to manage animations!
 
 Getting Started
