@@ -65,7 +65,8 @@
             // Iterate over each object we have at the moment.
             for (var index = 0; index < service.objects.length; index++) {
 
-                var object = service.objects[index].object;
+                var object = service.objects[index].object,
+                    p3d    = service.objects[index].p3d;
 
                 // Extract the dimensions for the object.
                 var xAxis = object.dimension.xAxis,
@@ -89,7 +90,7 @@
                 var colour = new obelisk[objectType + 'Color']().getByHorizontalColor(object.color.horizontal);
 
                 // Finally we need to create the same object that we're dealing with, and render it!
-                service.pixelView.renderObject(new obelisk[objectType](dimension, colour, object.border));
+                service.pixelView.renderObject(new obelisk[objectType](dimension, colour, object.border), p3d);
 
             }
 
@@ -98,12 +99,14 @@
         /**
          * @method ObeliskObject
          * @param object {Object}
+         * @param p3d {Point3D|Object}
          * @constructor
          */
-        function ObeliskObject(object) {
+        function ObeliskObject(object, p3d) {
 
             // Store the information for the object.
             this.object = object;
+            this.p3d    = p3d;
 
         }
 
@@ -118,6 +121,12 @@
              * @type {Object}
              */
             object: {},
+
+            /**
+             * @property p3d
+             * @type {Point3D|Object}
+             */
+            p3d: {},
 
             /**
              * @method setX
@@ -165,15 +174,16 @@
                     /**
                      * @method renderObject
                      * @param object {Object}
+                     * @param p3d {Point3D}
                      * @return {Object}
                      */
-                    this.renderObject = function renderObject(object) {
+                    this.renderObject = function renderObject(object, p3d) {
 
                         // Render the object using the native Obelisk method.
-                        pixelViewPrototype.renderObject(object);
+                        pixelViewPrototype.renderObject(object, p3d || {});
 
                         // Instantiate a new `ObeliskObject` for manipulating the object.
-                        var model = new ObeliskObject(object);
+                        var model = new ObeliskObject(object, p3d || {});
 
                         // Push the model into the array of objects.
                         service.objects.push(model);

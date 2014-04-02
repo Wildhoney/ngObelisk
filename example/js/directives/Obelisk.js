@@ -27,7 +27,10 @@
                 var gray = obelisk.ColorPattern.GRAY;
                 var color = new obelisk.CubeColor().getByHorizontalColor(gray);
                 var cube = new obelisk.Cube(dimension, color, true);
-                var object = pixelView.renderObject(cube);
+
+                var p3d = new obelisk.Point3D(140, 40, 40);
+
+                var object = pixelView.renderObject(cube, p3d);
 
                 var index = 20;
 
@@ -35,11 +38,11 @@
 
                     index += 2;
 
-                    if (index <= 300) {
+                    if (index <= 100) {
                         object.setX(index);
                     }
 
-                }, 5);
+                }, 25);
 
             }
         }
