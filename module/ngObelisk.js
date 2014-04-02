@@ -64,7 +64,16 @@
                      * @return {Object}
                      */
                     this.renderObject = function renderObject(object) {
-                        return pixelViewPrototype.renderObject(object);
+
+                        // Render the object using the native Obelisk method.
+                        pixelViewPrototype.renderObject(object);
+
+                        // Push the object into the array of objects.
+                        service.objects.push(object);
+
+                        // Return the object.
+                        return object;
+
                     }
 
                 }
