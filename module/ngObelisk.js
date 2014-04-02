@@ -143,9 +143,19 @@
              * @param value {Number}
              * @return {void}
              */
-            setY: function setX(value) {
+            setY: function setY(value) {
                 service._prepareChanges();
                 this.object.dimension.yAxis = value;
+            },
+
+            /**
+             * @method setZ
+             * @param value {Number}
+             * @return {void}
+             */
+            setZ: function setZ(value) {
+                service._prepareChanges();
+                this.object.dimension.zAxis = value;
             }
 
         };
