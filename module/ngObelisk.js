@@ -68,11 +68,14 @@
                         // Render the object using the native Obelisk method.
                         pixelViewPrototype.renderObject(object);
 
-                        // Push the object into the array of objects.
-                        service.objects.push(object);
+                        // Instantiate a new `ObeliskObject` for manipulating the object.
+                        var model = new ObeliskObject(object);
 
-                        // Return the object.
-                        return object;
+                        // Push the model into the array of objects.
+                        service.objects.push(model);
+
+                        // Return the model.
+                        return model;
 
                     }
 
