@@ -75,9 +75,6 @@
                 // We can therefore now define the dimensions.
                 var dimension = new obelisk.CubeDimension(xAxis, yAxis, zAxis);
 
-                // Define the colour using the colour from the model.
-                var colour = new obelisk.CubeColor().getByHorizontalColor(object.color.horizontal);
-
                 // Determine the type of the object, such as cube, pyramid, et cetera...
                 var objectType = object.toString().replace(/[^a-z]+/ig, '');
 
@@ -87,6 +84,9 @@
                     throw "ngObelisk: unable to find object of type '" + objectType + "'.";
 
                 }
+
+                // Define the colour using the colour from the model.
+                var colour = new obelisk[objectType + 'Color']().getByHorizontalColor(object.color.horizontal);
 
                 // Finally we need to create the same object that we're dealing with, and render it!
                 service.pixelView.renderObject(new obelisk[objectType](dimension, colour, object.border));
