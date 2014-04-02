@@ -32,6 +32,12 @@
         service.timeout = null;
 
         /**
+         * @property pixelView
+         * @type {Object}
+         */
+        service.pixelView = {};
+
+        /**
          * @method _prepareChanges
          * @return {void}
          * @private
@@ -42,7 +48,19 @@
             $timeout.cancel(service.timeout);
 
             // Finally we can initialise the timeout.
-            service.timeout = $timeout(function() {}, 1);
+            service.timeout = $timeout(service._commitChanges, 1);
+
+        };
+
+        /**
+         * @method _commitChanges
+         * @return {void}
+         * @private
+         */
+        service._commitChanges = function _commitChanges() {
+
+            // Clear the stage for the new changes.
+            service.pixelView.clear();
 
         };
 
@@ -100,6 +118,9 @@
 
                 // Find the prototype for the `PixelView`.
                 var pixelViewPrototype = scope.__proto__.PixelView.prototype;
+
+                // Store the pixel view.
+                service.pixelView = pixelViewPrototype;
 
                 // Invoke the `PixelView` method and return the prototype.
                 scope.__proto__.PixelView.apply(pixelViewPrototype, [element, point]);
