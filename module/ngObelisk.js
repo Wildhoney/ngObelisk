@@ -11,7 +11,7 @@
     /**
      * @service obelisk
      */
-    app.service('obelisk', ['$window', function obeliskService($window) {
+    app.service('obelisk', ['$window', '$timeout', function obeliskService($window, $timeout) {
 
         /**
          * @property service
@@ -24,6 +24,27 @@
          * @type {Array}
          */
         service.objects = [];
+
+        /**
+         * @property timeout
+         * @type {null}
+         */
+        service.timeout = null;
+
+        /**
+         * @method _prepareChanges
+         * @return {void}
+         * @private
+         */
+        service._prepareChanges = function _prepareChanges() {
+
+            // Cancel the timeout if it exists already.
+            $timeout.cancel(service.timeout);
+
+            // Finally we can initialise the timeout.
+            service.timeout = $timeout(function() {}, 1);
+
+        };
 
         /**
          * @method ObeliskObject
@@ -55,6 +76,7 @@
              * @return {void}
              */
             setX: function setX(value) {
+                service._prepareChanges();
                 this.object.dimension.xAxis = value;
             }
 
