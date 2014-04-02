@@ -75,11 +75,11 @@
                 // We can therefore now define the dimensions.
                 var dimension = new obelisk.CubeDimension(xAxis, yAxis, zAxis);
 
-                var gray = obelisk.ColorPattern.GRAY;
-                var color = new obelisk.CubeColor().getByHorizontalColor(gray);
-                var cube = new obelisk.Cube(dimension, color, true);
+                // Define the colour using the colour from the model.
+                var colour = new obelisk.CubeColor().getByHorizontalColor(object.color.horizontal);
 
-                service.pixelView.renderObject(cube);
+                // Finally we need to create the same object that we're dealing with, and render it!
+                service.pixelView.renderObject(new obelisk.Cube(dimension, colour, object.border));
 
             }
 
