@@ -28,6 +28,17 @@
                 $scope.pixelView = null;
 
                 /**
+                 * @property framesPerSecond
+                 * @type {Number}
+                 */
+                $scope.framesPerSecond = 0;
+
+                // Once the FPS has been calculated for the previous rendered frame.
+                $scope.$on('obelisk/fps', function fpsCalculated(event, value) {
+                    $scope.framesPerSecond = value;
+                });
+
+                /**
                  * @method createCube
                  * @return {Object}
                  */

@@ -13,7 +13,7 @@
     /**
      * @service obelisk
      */
-    app.service('obelisk', ['$window', '$timeout', function obeliskService($window, $timeout) {
+    app.service('obelisk', ['$rootScope', '$window', '$timeout', function obeliskService($rootScope, $window, $timeout) {
 
         /**
          * @property service
@@ -61,6 +61,9 @@
          */
         service._commitChanges = function _commitChanges() {
 
+            // Determine the start time to calculate the FPS.
+            var startTime = new $window.Date().getTime();
+
             // Clear the stage for the new frame.
             service.pixelView.clear();
 
@@ -92,6 +95,11 @@
                 service.pixelView.renderObject(new obelisk[objectType](dimension, object.color, object.border), p3d);
 
             }
+
+            // Calculate the FPS for the rendered frame, and then emit the FPS value.
+            var millisecondsTaken = new $window.Date().getTime() - startTime,
+                framesPerSecond   = (1000 / millisecondsTaken);
+            $rootScope.$broadcast('obelisk/fps', framesPerSecond);
 
         };
 
