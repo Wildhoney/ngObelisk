@@ -187,6 +187,10 @@
 
             var scope = this;
 
+            /**
+             * @method sanityCheck
+             * @return {void}
+             */
             this.sanityCheck = function sanityCheck() {
 
                 var properties = ['dimension', 'color'];
