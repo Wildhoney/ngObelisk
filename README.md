@@ -7,6 +7,13 @@ ngObelisk
 
 <a href="https://github.com/nosir/obelisk.js">Obelisk</a> is a very useful JavaScript library for creating isometric shapes. However, animations are difficult to achieve. That's where ngObelisk attempts to make things easier by utilising the Angular.js runtime loop to manage animations!
 
+Building
+---------
+
+ * `npm install`;
+ * `bower install`;
+ * Navigate to `localhost/ngObelisk/example`;
+
 Getting Started
 ---------
 
@@ -22,11 +29,11 @@ var object = pixelView.renderObject(cube, p3d);
 
 Therefore with `object` you can now invoke methods to animate your canvas &ndash; try `object.setX(200)` to change the dimension of your newly rendered cube.
 
-* `setPosition` &mdash; set position of the object;
-* `setColour` &mdash; set colour of the object;
 * `setX` &mdash; set X dimension;
 * `setY` &mdash; set Y dimension;
 * `setZ` &mdash; set Z dimension;
+* `setColour` &mdash; set colour of the object;
+* `setPosition` &mdash; set position of the object;
 
 Debugging
 ---------
