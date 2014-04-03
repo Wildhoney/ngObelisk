@@ -73,14 +73,6 @@
                 var object = service.objects[index].object,
                     p3d    = service.objects[index].p3d;
 
-                // Extract the dimensions for the object.
-                var xAxis = object.dimension.xAxis,
-                    yAxis = object.dimension.yAxis,
-                    zAxis = object.dimension.zAxis;
-
-                // We can therefore now define the dimensions.
-                var dimension = new obelisk.CubeDimension(xAxis, yAxis, zAxis);
-
                 // Determine the type of the object, such as cube, pyramid, et cetera...
                 var objectType = object.toString().replace(/[^a-z]+/ig, '');
 
@@ -92,7 +84,7 @@
                 }
 
                 // Finally we need to create the same object that we're dealing with, and render it!
-                service.pixelView.renderObject(new obelisk[objectType](dimension, object.color, object.border), p3d);
+                service.pixelView.renderObject(new obelisk[objectType](object.dimension, object.color, object.border), p3d);
 
             }
 
@@ -278,10 +270,8 @@
                         // Instantiate a new `ObeliskObject` for manipulating the object.
                         var model = new ObeliskObject(object, p3d);
 
-                        // Push the model into the array of objects.
+                        // Push the model into the array of objects, and then return the model.
                         service.objects.push(model);
-
-                        // Return the model.
                         return model;
 
                     }
