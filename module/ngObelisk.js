@@ -88,11 +88,8 @@
 
                 }
 
-                // Define the colour using the colour from the model.
-                var colour = new obelisk[objectType + 'Color']().getByHorizontalColor(object.color.horizontal);
-
                 // Finally we need to create the same object that we're dealing with, and render it!
-                service.pixelView.renderObject(new obelisk[objectType](dimension, colour, object.border), p3d);
+                service.pixelView.renderObject(new obelisk[objectType](dimension, object.color, object.border), p3d);
 
             }
 
@@ -264,10 +261,10 @@
                     this.renderObject = function renderObject(object, p3d) {
 
                         // Render the object using the native Obelisk method.
-                        pixelViewPrototype.renderObject(object, p3d || {});
+                        pixelViewPrototype.renderObject(object, p3d);
 
                         // Instantiate a new `ObeliskObject` for manipulating the object.
-                        var model = new ObeliskObject(object, p3d || {});
+                        var model = new ObeliskObject(object, p3d);
 
                         // Push the model into the array of objects.
                         service.objects.push(model);

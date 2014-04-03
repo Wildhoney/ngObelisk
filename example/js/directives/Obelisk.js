@@ -3,7 +3,7 @@
     /**
      * @directive Obelisk
      */
-    $app.directive('obelisk', ['$window', '$timeout', 'obelisk', function obeliskController($window, $timeout, obelisk) {
+    $app.directive('obelisk', ['$window', '$interval', 'obelisk', function obeliskController($window, $interval, obelisk) {
 
         return {
 
@@ -22,19 +22,37 @@
             controller: function controller($scope) {
 
                 /**
+                 * @property pixelView
+                 * @type {Object}
+                 */
+                $scope.pixelView = null;
+
+                /**
                  * @method createCube
                  * @return {Object}
                  */
-                $scope.createCube = function createCube(element) {
+                $scope.createCube = function createCube() {
 
-                    var point       = new obelisk.Point(250, 150),
-                        pixelView   = new obelisk.PixelView(element, point),
-                        dimension   = new obelisk.CubeDimension(10, 10, 10),
+                    var dimension   = new obelisk.CubeDimension(20, 20, 50),
                         gray        = obelisk.ColorPattern.GRAY,
                         color       = new obelisk.CubeColor().getByHorizontalColor(gray),
                         p3d         = new obelisk.Point3D(140, 40, 40);
 
-                    return pixelView.renderObject(new obelisk.Cube(dimension, color, true), p3d);
+                    return $scope.pixelView.renderObject(new obelisk.Cube(dimension, color, true), p3d);
+
+                };
+
+                /**
+                 * @method createPyramid
+                 * @return {Object}
+                 */
+                $scope.createPyramid = function createPyramid() {
+
+                    var dimension   = new obelisk.PyramidDimension(20),
+                        color       = new obelisk.PyramidColor().getByRightColor(obelisk.ColorPattern.GRASS_GREEN),
+                        p3d         = new obelisk.Point3D(140, 40, 90);
+
+                    return $scope.pixelView.renderObject(new obelisk.Pyramid(dimension, color, true), p3d);
 
                 };
 
@@ -48,17 +66,29 @@
              */
             link: function link(scope, element) {
 
-                var index = 20;
+                // Initialise the pixel view using the CANVAS element.
+                scope.pixelView = new obelisk.PixelView(element[0], new obelisk.Point(250, 150));
 
-                var cube = scope.createCube(element[0]);
+                var size    = 40;
+                    cube    = scope.createCube(),
+                    pyramid = scope.createPyramid();
 
-                $timeout(function timeout() {
+                var interval = $interval(function timeout() {
 
-                    cube.setX(100);
-                    cube.setY(100);
-                    cube.setPosition(new obelisk.Point3D(index, 40, 40));
+                    size += 10;
 
-                }, 25);
+                    if (size === 100) {
+                        $interval.cancel(interval);
+                        return;
+                    }
+
+                    cube.setX(size);
+                    cube.setY(size);
+
+                    pyramid.setX(size);
+                    pyramid.setY(size);
+
+                }, 100);
 
             }
         }
