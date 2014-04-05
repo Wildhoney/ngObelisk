@@ -175,6 +175,16 @@
             setZ: function setZ(value) {
                 service._prepareChanges();
                 this.object.dimension.zAxis = value;
+            },
+
+            /**
+             * @method remove
+             * @return {void}
+             */
+            remove: function remove() {
+                service._prepareChanges();
+                var index = service.objects.indexOf(this);
+                service.objects.splice(index, 1);
             }
 
         };
