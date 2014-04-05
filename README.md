@@ -34,6 +34,7 @@ Therefore with `object` you can now invoke methods to animate your canvas &ndash
 * `setZ` &mdash; set Z dimension;
 * `setColour` &mdash; set colour of the object;
 * `setPosition` &mdash; set position of the object;
+* `remove` &mdash; remove object from canvas;
 
 Debugging
 ---------
