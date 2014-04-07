@@ -1,5 +1,5 @@
 /node_modules
+/example/js/ng-obelisk.js
 /example/js/vendor/*
 !/example/js/vendor/.gitkeep
 /.idea
-generate-words.rb

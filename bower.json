@@ -17,7 +17,6 @@
   ],
   "dependencies": {
     "obelisk.js": "~1.0.2",
-    "angular": "~1.2.15",
-    "ng-obelisk": "~0.4.1"
+    "angular": "~1.2.15"
   }
 }

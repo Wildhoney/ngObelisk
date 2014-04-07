@@ -23,6 +23,10 @@ module.exports = function(grunt) {
                 files: [
                     {flatten: true, src: ['module/ngObelisk.js'], dest: 'dist/ng-obelisk.js'}
                 ]
+            },
+            test: {
+                src: 'module/ngObelisk.js',
+                dest: 'example/js/ng-obelisk.js'
             }
         },
         rename: {
@@ -30,14 +34,6 @@ module.exports = function(grunt) {
                 files: [
                     {src: ['dist/ng-obelisk.js'], dest: 'dist/<%= pkg.name %>.js'}
                 ]
-            }
-        },
-        mochaTest: {
-            test: {
-                options: {
-                    reporter: 'spec'
-                },
-                src: ['tests/*.js']
             }
         }
     });
