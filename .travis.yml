@@ -1,13 +1,12 @@
 language: node_js
 node_js:
 - '0.10'
-before_install:
+before_script:
 - npm install -g grunt-cli
 - npm install -g bower
-install:
+script:
 - npm install
 - bower install
-script:
 - grunt test
 deploy:
   app: ng-obelisk
