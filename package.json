@@ -4,7 +4,9 @@
   "description": "Easily use Obelisk to create animations using Angular.js",
   "main": "dist/ng-obelisk.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "start": "node example/server.js",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
