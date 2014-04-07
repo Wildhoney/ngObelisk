@@ -13,8 +13,3 @@ deploy:
   provider: heroku
   api_key:
     secure: Pbup371Vt3S/5H41S90YWUp8skdgDZNHEnEUXKdWFGxe4/HHYHaOWdAXYsgHTMrAfOCFXaCieQ/sjFo/GD9Ra5Al67BUE3aFxB/N4LiQlQh6gtZwUCLIytzMlKbMOapfud97U2m0E+UlH+vJkCymSpSXi9gNlCAk6ylbQqLX+yo=
-  run:
-  - npm install -g grunt-cli -q
-  - npm install -g bower -q
-  - npm install -q
-  - bower install
