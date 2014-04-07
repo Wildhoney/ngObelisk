@@ -22,16 +22,16 @@ You can follow the <a href="https://github.com/nosir/obelisk.js#getting-started"
 However, you'll need to inject `obelisk` into your directive that you're using for your Obelisk doodles.
 
 ```javascript
-var cube = pixelView.renderObject(cube, p3d);
+var object = pixelView.renderObject(cube, p3d);
 ```
 
 `ngObelisk` returns the object to manipulate from the `renderObject` method &ndash; this is how the animations work in `ngObelisk`.
 
-Therefore with `object` you can now invoke methods to animate your canvas &ndash; try `cube.setX(200)` to change the dimension of your newly rendered cube.
+Therefore with `object` you can now invoke methods to animate your canvas &ndash; try `object.setX(200)` to change the dimension of your newly rendered cube.
 
 ```javascript
-var cube = pixelView.renderObject(cube, p3d);
-cube.setX(200);
+var object = pixelView.renderObject(cube, p3d);
+object.setX(200);
 ```
 
 <h3>All Methods</h3>
