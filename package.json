@@ -6,7 +6,7 @@
   "scripts": {
     "test": "grunt test",
     "start": "node example/server.js",
-    "postinstall": "bower install"
+    "postinstall": "npm install bower -g && bower install"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,6 @@
     "grunt-contrib-uglify": "~0.4.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-copy": "~0.5.0",
-    "express": "~3.5.1",
-    "grunt": "~0.4.4"
+    "express": "~3.5.1"
   }
 }
