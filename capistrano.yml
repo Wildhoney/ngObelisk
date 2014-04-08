@@ -1,0 +1,5 @@
+# Path of where we're letting Capistrano deploy to.
+deploy_to: /Users/Wildhoney/Webroot/Capistrano/Deploy
+
+# Username and the host for the SSH connection.
+ssh_connection: Wildhoney@localhost
