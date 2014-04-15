@@ -67,6 +67,20 @@
 
                 };
 
+                /**
+                 * @method createBrick
+                 * @return {Object}
+                 */
+                $scope.createBrick = function createBrick() {
+
+                    var dimension   = new obelisk.BrickDimension(100, 100),
+                        color       = new obelisk.SideColor().getByInnerColor(obelisk.ColorPattern.GRAY),
+                        p3d         = new obelisk.Point3D(130, 40, 90);
+
+                    return $scope.pixelView.renderObject(new obelisk.Brick(dimension, color), p3d);
+
+                };
+
             },
 
             /**
@@ -80,7 +94,8 @@
                 // Initialise the pixel view using the CANVAS element.
                 scope.pixelView = new obelisk.PixelView(element[0], new obelisk.Point(250, 150));
 
-                var size    = 40;
+                var size    = 40,
+                    brick   = scope.createBrick(),
                     cube    = scope.createCube(),
                     pyramid = scope.createPyramid();
 
@@ -95,8 +110,11 @@
 
                     cube.setX(size);
                     cube.setY(size);
+                    brick.setX(100 + size);
+                    brick.setY(100 + size);
 
                     pyramid.setX(size);
+                    pyramid.setY(size);
                     pyramid.setY(size);
 
                 }, 100);
