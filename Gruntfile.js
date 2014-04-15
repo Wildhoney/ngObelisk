@@ -40,25 +40,18 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 files: [
-                    {flatten: true, src: ['module/ngObelisk.js'], dest: 'dist/ng-obelisk.js'}
+                    { flatten: true, src: ['module/ngObelisk.js'], dest: 'dist/ng-obelisk.js' }
                 ]
             },
             test: {
                 src: 'module/ngObelisk.js',
                 dest: 'example/js/ng-obelisk.js'
+            },
+            release: {
+                src: 'releases/<%= pkg.version %>.zip',
+                dest: 'releases/master.zip'
             }
-        },
 
-        /**
-         * @property rename
-         * @type {Object}
-         */
-        rename: {
-            main: {
-                files: [
-                    {src: ['dist/ng-obelisk.js'], dest: 'dist/<%= pkg.name %>.js'}
-                ]
-            }
         },
 
         /**
@@ -82,8 +75,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
 
-    grunt.registerTask('build', ['copy', 'uglify', 'compress']);
+    grunt.registerTask('build', ['copy', 'uglify', 'compress', 'copy']);
     grunt.registerTask('test', ['jshint']);
-    grunt.registerTask('default', ['jshint', 'copy', 'uglify', 'compress']);
+    grunt.registerTask('default', ['jshint', 'compress', 'copy', 'uglify']);
 
 };

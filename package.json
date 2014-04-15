@@ -1,6 +1,6 @@
 {
   "name": "ng-obelisk",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "Easily use Obelisk to create animations using Angular.js",
   "main": "dist/ng-obelisk.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "grunt": "~0.4.4",
     "bower": "~1.3.2",
     "grunt-cli": "~0.1.13",
-    "grunt-contrib-compress": "~0.8.0"
+    "grunt-contrib-compress": "~0.8.0",
+    "grunt-contrib-rename": "0.0.3"
   }
 }
