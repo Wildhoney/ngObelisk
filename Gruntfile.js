@@ -64,7 +64,7 @@ module.exports = function(grunt) {
                     archive: 'releases/<%= pkg.version %>.zip'
                 },
                 files: [
-                    { flatten: true, src: ['dist/**'], dest: 'releases/', filter: 'isFile' }
+                    { flatten: true, src: ['dist/**'], dest: './', filter: 'isFile' }
                 ]
             }
         }
