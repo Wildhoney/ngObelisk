@@ -1,11 +1,12 @@
 {
   "name": "ng-obelisk",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "Easily use Obelisk to create animations using Angular.js",
   "main": "dist/ng-obelisk.js",
   "scripts": {
     "test": "grunt test",
     "start": "node example/server.js",
+    "preinstall": "npm install --ignore-scripts",
     "postinstall": "node_modules/bower/bin/bower install && node_modules/grunt-cli/bin/grunt build"
   },
   "repository": {
